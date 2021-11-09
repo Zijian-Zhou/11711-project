@@ -96,14 +96,18 @@ class Results:
             f.write(str(i) + " " + H)
         f.close()
 
-    # this doesn't actually work
-    def perplexity(self):
-        count = 0.0
-        ntok = 0
-        for line_id in self.results:
-            (_, _, _, _, P) = self.results[line_id]
-            P_split = P.split(" ")
-            for p in P_split:
-                count += 2 ** -float(p)
-            ntok += len(P_split)
-        return count, ntok
+    # write all the targets to a target output file
+    def write_T(self, out):
+        f = open(out, "w")
+        for i in self.ids:
+            (_, T, _, _, _) = self.results[i]
+            f.write(T)
+        f.close()
+
+    # write all the hypotheses to a target output file
+    def write_H(self, out):
+        f = open(out, "w")
+        for i in self.ids:
+            (_, _, H, _, _) = self.results[i]
+            f.write(H)
+        f.close()

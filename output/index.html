@@ -1,0 +1,1126 @@
+<html>
+<head>
+<link rel="stylesheet" href="compare_mt.css">
+</head>
+<script>
+
+function showhide(elem) {
+  var x = document.getElementById(elem);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+</script>
+<body>
+<h1>compare-mt Analysis Report</h1>
+ <h2>Aggregate Scores</h2>
+<table border="1">
+<caption> BLEU </caption><tr> <th>  </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> BLEU </th>
+  <td> 99.9698 </td>
+  <td> 35.4420 </td> </tr>
+</table>
+ <br/><button onclick="showhide('001_latex')">Show/Hide LaTeX</button> <br/><pre id="001_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & sys1 & sys2 \\ \hline \hline
+BLEU & 99.9698 & 35.4420 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table001}
+\end{table}</pre><img src="001-score-bleu.png" alt="Score Comparison"> <br/><button onclick="showhide('001-score-bleu_latex')">Show/Hide LaTeX</button> <br/><pre id="001-score-bleu_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{001-score-bleu.pdf}
+  \caption{Score Comparison}
+  \label{fig:001-score-bleu}
+\end{figure}</pre>
+<table border="1">
+<caption> length ratio </caption><tr> <th>  </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> length ratio </th>
+  <td> 1.0000 (ref=131161, out=131161) </td>
+  <td> 0.9579 (ref=131161, out=125640) </td> </tr>
+</table>
+ <br/><button onclick="showhide('002_latex')">Show/Hide LaTeX</button> <br/><pre id="002_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & sys1 & sys2 \\ \hline \hline
+length ratio & 1.0000 (ref=131161, out=131161) & 0.9579 (ref=131161, out=125640) \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table002}
+\end{table}</pre><img src="002-score-lengthrat.png" alt="Score Comparison"> <br/><button onclick="showhide('002-score-lengthrat_latex')">Show/Hide LaTeX</button> <br/><pre id="002-score-lengthrat_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{002-score-lengthrat.pdf}
+  \caption{Score Comparison}
+  \label{fig:002-score-lengthrat}
+\end{figure}</pre>
+<h2>Word Accuracies</h2>
+<table border="1">
+<caption> word fmeas by frequency bucket </caption><tr> <th> frequency </th>
+  <th> sys1 </th>
+  <th> sys2 </th>
+  <th> Examples </th> </tr><tr> <th> <1 </th>
+  <td> 0.0000 </td>
+  <td> 0.0000 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket0">Examples</a> </td> </tr><tr> <th> 1 </th>
+  <td> 1.0000 </td>
+  <td> 0.4611 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket1">Examples</a> </td> </tr><tr> <th> 2 </th>
+  <td> 1.0000 </td>
+  <td> 0.5446 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket2">Examples</a> </td> </tr><tr> <th> 3 </th>
+  <td> 1.0000 </td>
+  <td> 0.5573 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket3">Examples</a> </td> </tr><tr> <th> 4 </th>
+  <td> 1.0000 </td>
+  <td> 0.5793 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket4">Examples</a> </td> </tr><tr> <th> [5,10) </th>
+  <td> 1.0000 </td>
+  <td> 0.6161 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket5">Examples</a> </td> </tr><tr> <th> [10,100) </th>
+  <td> 1.0000 </td>
+  <td> 0.6462 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket6">Examples</a> </td> </tr><tr> <th> [100,1000) </th>
+  <td> 1.0000 </td>
+  <td> 0.6537 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket7">Examples</a> </td> </tr><tr> <th> >=1000 </th>
+  <td> 1.0000 </td>
+  <td> 0.7762 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket8">Examples</a> </td> </tr>
+</table>
+ <br/><button onclick="showhide('123_latex')">Show/Hide LaTeX</button> <br/><pre id="123_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||ccc}
+frequency & sys1 & sys2 \\ \hline \hline
+\textless1 & 0.0000 & 0.0000 \\
+1 & 1.0000 & 0.4611 \\
+2 & 1.0000 & 0.5446 \\
+3 & 1.0000 & 0.5573 \\
+4 & 1.0000 & 0.5793 \\
+{[}5,10) & 1.0000 & 0.6161 \\
+{[}10,100) & 1.0000 & 0.6462 \\
+{[}100,1000) & 1.0000 & 0.6537 \\
+\textgreater=1000 & 1.0000 & 0.7762 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table123}
+\end{table}</pre><img src="003-wordacc-frequency-fmeas.png" alt="Word Accuracy Analysis"> <br/><button onclick="showhide('003-wordacc-frequency-fmeas_latex')">Show/Hide LaTeX</button> <br/><pre id="003-wordacc-frequency-fmeas_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{003-wordacc-frequency-fmeas.pdf}
+  \caption{Word Accuracy Analysis}
+  \label{fig:003-wordacc-frequency-fmeas}
+\end{figure}</pre>
+<h2>Sentence Buckets</h2>
+<table border="1">
+<caption> bucket type: length, statistic type: BLEU </caption><tr> <th> length </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> <10 </th>
+  <td> 99.4242 </td>
+  <td> 38.6963 </td> </tr><tr> <th> [10,20) </th>
+  <td> 100.0000 </td>
+  <td> 37.7713 </td> </tr><tr> <th> [20,30) </th>
+  <td> 100.0000 </td>
+  <td> 35.5708 </td> </tr><tr> <th> [30,40) </th>
+  <td> 100.0000 </td>
+  <td> 33.0986 </td> </tr><tr> <th> [40,50) </th>
+  <td> 100.0000 </td>
+  <td> 33.0705 </td> </tr><tr> <th> [50,60) </th>
+  <td> 100.0000 </td>
+  <td> 32.8039 </td> </tr><tr> <th> >=60 </th>
+  <td> 100.0000 </td>
+  <td> 31.1650 </td> </tr>
+</table>
+ <br/><button onclick="showhide('124_latex')">Show/Hide LaTeX</button> <br/><pre id="124_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+length & sys1 & sys2 \\ \hline \hline
+\textless10 & 99.4242 & 38.6963 \\
+{[}10,20) & 100.0000 & 37.7713 \\
+{[}20,30) & 100.0000 & 35.5708 \\
+{[}30,40) & 100.0000 & 33.0986 \\
+{[}40,50) & 100.0000 & 33.0705 \\
+{[}50,60) & 100.0000 & 32.8039 \\
+\textgreater=60 & 100.0000 & 31.1650 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table124}
+\end{table}</pre><img src="004-sent-length-bleu.png" alt="Sentence Bucket Analysis"> <br/><button onclick="showhide('004-sent-length-bleu_latex')">Show/Hide LaTeX</button> <br/><pre id="004-sent-length-bleu_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{004-sent-length-bleu.pdf}
+  \caption{Sentence Bucket Analysis}
+  \label{fig:004-sent-length-bleu}
+\end{figure}</pre>
+<table border="1">
+<caption> bucket type: len(output)-len(reference), statistic type: count </caption><tr> <th> lengthdiff </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> <-20 </th>
+  <td> 0 </td>
+  <td> 13 </td> </tr><tr> <th> [-20,-10) </th>
+  <td> 0 </td>
+  <td> 65 </td> </tr><tr> <th> [-10,-5) </th>
+  <td> 0 </td>
+  <td> 360 </td> </tr><tr> <th> -5 </th>
+  <td> 0 </td>
+  <td> 215 </td> </tr><tr> <th> -4 </th>
+  <td> 0 </td>
+  <td> 321 </td> </tr><tr> <th> -3 </th>
+  <td> 0 </td>
+  <td> 492 </td> </tr><tr> <th> -2 </th>
+  <td> 0 </td>
+  <td> 708 </td> </tr><tr> <th> -1 </th>
+  <td> 0 </td>
+  <td> 1018 </td> </tr><tr> <th> 0 </th>
+  <td> 6750 </td>
+  <td> 1728 </td> </tr><tr> <th> 1 </th>
+  <td> 0 </td>
+  <td> 774 </td> </tr><tr> <th> 2 </th>
+  <td> 0 </td>
+  <td> 476 </td> </tr><tr> <th> 3 </th>
+  <td> 0 </td>
+  <td> 217 </td> </tr><tr> <th> 4 </th>
+  <td> 0 </td>
+  <td> 150 </td> </tr><tr> <th> 5 </th>
+  <td> 0 </td>
+  <td> 70 </td> </tr><tr> <th> [6,11) </th>
+  <td> 0 </td>
+  <td> 114 </td> </tr><tr> <th> [11,21) </th>
+  <td> 0 </td>
+  <td> 19 </td> </tr><tr> <th> >=21 </th>
+  <td> 0 </td>
+  <td> 10 </td> </tr>
+</table>
+ <br/><button onclick="showhide('125_latex')">Show/Hide LaTeX</button> <br/><pre id="125_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+lengthdiff & sys1 & sys2 \\ \hline \hline
+\textless-20 & 0 & 13 \\
+{[}-20,-10) & 0 & 65 \\
+{[}-10,-5) & 0 & 360 \\
+-5 & 0 & 215 \\
+-4 & 0 & 321 \\
+-3 & 0 & 492 \\
+-2 & 0 & 708 \\
+-1 & 0 & 1018 \\
+0 & 6750 & 1728 \\
+1 & 0 & 774 \\
+2 & 0 & 476 \\
+3 & 0 & 217 \\
+4 & 0 & 150 \\
+5 & 0 & 70 \\
+{[}6,11) & 0 & 114 \\
+{[}11,21) & 0 & 19 \\
+\textgreater=21 & 0 & 10 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table125}
+\end{table}</pre><img src="005-sent-lengthdiff-count.png" alt="Sentence Bucket Analysis"> <br/><button onclick="showhide('005-sent-lengthdiff-count_latex')">Show/Hide LaTeX</button> <br/><pre id="005-sent-lengthdiff-count_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{005-sent-lengthdiff-count.pdf}
+  \caption{Sentence Bucket Analysis}
+  \label{fig:005-sent-lengthdiff-count}
+\end{figure}</pre>
+<table border="1">
+<caption> bucket type: sentence-level BLEU, statistic type: count </caption><tr> <th> sentbleu </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> <10.0 </th>
+  <td> 0 </td>
+  <td> 160 </td> </tr><tr> <th> [10.0,20.0) </th>
+  <td> 0 </td>
+  <td> 1008 </td> </tr><tr> <th> [20.0,30.0) </th>
+  <td> 0 </td>
+  <td> 1383 </td> </tr><tr> <th> [30.0,40.0) </th>
+  <td> 0 </td>
+  <td> 1298 </td> </tr><tr> <th> [40.0,50.0) </th>
+  <td> 0 </td>
+  <td> 1008 </td> </tr><tr> <th> [50.0,60.0) </th>
+  <td> 0 </td>
+  <td> 776 </td> </tr><tr> <th> [60.0,70.0) </th>
+  <td> 0 </td>
+  <td> 404 </td> </tr><tr> <th> [70.0,80.0) </th>
+  <td> 37 </td>
+  <td> 261 </td> </tr><tr> <th> [80.0,90.0) </th>
+  <td> 62 </td>
+  <td> 159 </td> </tr><tr> <th> >=90.0 </th>
+  <td> 6651 </td>
+  <td> 293 </td> </tr>
+</table>
+ <br/><button onclick="showhide('126_latex')">Show/Hide LaTeX</button> <br/><pre id="126_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+sentbleu & sys1 & sys2 \\ \hline \hline
+\textless10.0 & 0 & 160 \\
+{[}10.0,20.0) & 0 & 1008 \\
+{[}20.0,30.0) & 0 & 1383 \\
+{[}30.0,40.0) & 0 & 1298 \\
+{[}40.0,50.0) & 0 & 1008 \\
+{[}50.0,60.0) & 0 & 776 \\
+{[}60.0,70.0) & 0 & 404 \\
+{[}70.0,80.0) & 37 & 261 \\
+{[}80.0,90.0) & 62 & 159 \\
+\textgreater=90.0 & 6651 & 293 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table126}
+\end{table}</pre><img src="006-sent-sentbleu-count.png" alt="Sentence Bucket Analysis"> <br/><button onclick="showhide('006-sent-sentbleu-count_latex')">Show/Hide LaTeX</button> <br/><pre id="006-sent-sentbleu-count_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{006-sent-sentbleu-count.pdf}
+  \caption{Sentence Bucket Analysis}
+  \label{fig:006-sent-sentbleu-count}
+\end{figure}</pre>
+<h2>Characteristic N-grams</h2>
+<p> min_ngram_length=1, max_ngram_length=4 </p><p> report_length=50, alpha=1.0, compare_type=match </p><table border="1">
+<caption> 50 n-grams where sys1>sys2 in match </caption><tr> <th> n-gram </th>
+  <th> match </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> that is </th>
+  <td> 0.9789 </td>
+  <td> 92 </td>
+  <td> 1 </td> </tr><tr> <th> simply </th>
+  <td> 0.9722 </td>
+  <td> 34 </td>
+  <td> 0 </td> </tr><tr> <th> sort of </th>
+  <td> 0.9655 </td>
+  <td> 55 </td>
+  <td> 1 </td> </tr><tr> <th> experiencing </th>
+  <td> 0.9643 </td>
+  <td> 26 </td>
+  <td> 0 </td> </tr><tr> <th> couple </th>
+  <td> 0.9630 </td>
+  <td> 25 </td>
+  <td> 0 </td> </tr><tr> <th> experiencing self </th>
+  <td> 0.9583 </td>
+  <td> 22 </td>
+  <td> 0 </td> </tr><tr> <th> gamers </th>
+  <td> 0.9565 </td>
+  <td> 21 </td>
+  <td> 0 </td> </tr><tr> <th> a couple </th>
+  <td> 0.9545 </td>
+  <td> 20 </td>
+  <td> 0 </td> </tr><tr> <th> there is </th>
+  <td> 0.9531 </td>
+  <td> 60 </td>
+  <td> 2 </td> </tr><tr> <th> begin </th>
+  <td> 0.9524 </td>
+  <td> 19 </td>
+  <td> 0 </td> </tr><tr> <th> might be </th>
+  <td> 0.9524 </td>
+  <td> 19 </td>
+  <td> 0 </td> </tr><tr> <th> sort </th>
+  <td> 0.9524 </td>
+  <td> 59 </td>
+  <td> 2 </td> </tr><tr> <th> so , i </th>
+  <td> 0.9524 </td>
+  <td> 19 </td>
+  <td> 0 </td> </tr><tr> <th> &apos;ve got </th>
+  <td> 0.9512 </td>
+  <td> 38 </td>
+  <td> 1 </td> </tr><tr> <th> the experiencing </th>
+  <td> 0.9500 </td>
+  <td> 18 </td>
+  <td> 0 </td> </tr><tr> <th> i will </th>
+  <td> 0.9500 </td>
+  <td> 18 </td>
+  <td> 0 </td> </tr><tr> <th> the experiencing self </th>
+  <td> 0.9500 </td>
+  <td> 18 </td>
+  <td> 0 </td> </tr><tr> <th> , in fact </th>
+  <td> 0.9474 </td>
+  <td> 17 </td>
+  <td> 0 </td> </tr><tr> <th> twenty </th>
+  <td> 0.9474 </td>
+  <td> 17 </td>
+  <td> 0 </td> </tr><tr> <th> , those </th>
+  <td> 0.9474 </td>
+  <td> 17 </td>
+  <td> 0 </td> </tr><tr> <th> that that </th>
+  <td> 0.9474 </td>
+  <td> 17 </td>
+  <td> 0 </td> </tr><tr> <th> couple of </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> , in fact , </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> aren &apos;t </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> there is a </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> aren </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> you &apos;d </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> those are </th>
+  <td> 0.9444 </td>
+  <td> 16 </td>
+  <td> 0 </td> </tr><tr> <th> a bit </th>
+  <td> 0.9412 </td>
+  <td> 15 </td>
+  <td> 0 </td> </tr><tr> <th> of that </th>
+  <td> 0.9388 </td>
+  <td> 45 </td>
+  <td> 2 </td> </tr><tr> <th> choosing </th>
+  <td> 0.9375 </td>
+  <td> 14 </td>
+  <td> 0 </td> </tr><tr> <th> and so , </th>
+  <td> 0.9375 </td>
+  <td> 29 </td>
+  <td> 1 </td> </tr><tr> <th> out in </th>
+  <td> 0.9375 </td>
+  <td> 14 </td>
+  <td> 0 </td> </tr><tr> <th> of , </th>
+  <td> 0.9375 </td>
+  <td> 14 </td>
+  <td> 0 </td> </tr><tr> <th> , there is </th>
+  <td> 0.9375 </td>
+  <td> 14 </td>
+  <td> 0 </td> </tr><tr> <th> onto </th>
+  <td> 0.9375 </td>
+  <td> 14 </td>
+  <td> 0 </td> </tr><tr> <th> made of </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> i would like </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> come up </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> i would like to </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> &apos;ve had </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> adversity </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> does not </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> that could </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> we &apos;ve got </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> so , you </th>
+  <td> 0.9333 </td>
+  <td> 13 </td>
+  <td> 0 </td> </tr><tr> <th> taking </th>
+  <td> 0.9310 </td>
+  <td> 26 </td>
+  <td> 1 </td> </tr><tr> <th> seeing </th>
+  <td> 0.9310 </td>
+  <td> 26 </td>
+  <td> 1 </td> </tr><tr> <th> i &apos;ve got </th>
+  <td> 0.9286 </td>
+  <td> 12 </td>
+  <td> 0 </td> </tr><tr> <th> , then you </th>
+  <td> 0.9286 </td>
+  <td> 12 </td>
+  <td> 0 </td> </tr>
+</table>
+ <br/><button onclick="showhide('127_latex')">Show/Hide LaTeX</button> <br/><pre id="127_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||ccc}
+n-gram & match & sys1 & sys2 \\ \hline \hline
+that is & 0.9789 & 92 & 1 \\
+simply & 0.9722 & 34 & 0 \\
+sort of & 0.9655 & 55 & 1 \\
+experiencing & 0.9643 & 26 & 0 \\
+couple & 0.9630 & 25 & 0 \\
+experiencing self & 0.9583 & 22 & 0 \\
+gamers & 0.9565 & 21 & 0 \\
+a couple & 0.9545 & 20 & 0 \\
+there is & 0.9531 & 60 & 2 \\
+begin & 0.9524 & 19 & 0 \\
+might be & 0.9524 & 19 & 0 \\
+sort & 0.9524 & 59 & 2 \\
+so , i & 0.9524 & 19 & 0 \\
+&apos;ve got & 0.9512 & 38 & 1 \\
+the experiencing & 0.9500 & 18 & 0 \\
+i will & 0.9500 & 18 & 0 \\
+the experiencing self & 0.9500 & 18 & 0 \\
+, in fact & 0.9474 & 17 & 0 \\
+twenty & 0.9474 & 17 & 0 \\
+, those & 0.9474 & 17 & 0 \\
+that that & 0.9474 & 17 & 0 \\
+couple of & 0.9444 & 16 & 0 \\
+, in fact , & 0.9444 & 16 & 0 \\
+aren &apos;t & 0.9444 & 16 & 0 \\
+there is a & 0.9444 & 16 & 0 \\
+aren & 0.9444 & 16 & 0 \\
+you &apos;d & 0.9444 & 16 & 0 \\
+those are & 0.9444 & 16 & 0 \\
+a bit & 0.9412 & 15 & 0 \\
+of that & 0.9388 & 45 & 2 \\
+choosing & 0.9375 & 14 & 0 \\
+and so , & 0.9375 & 29 & 1 \\
+out in & 0.9375 & 14 & 0 \\
+of , & 0.9375 & 14 & 0 \\
+, there is & 0.9375 & 14 & 0 \\
+onto & 0.9375 & 14 & 0 \\
+made of & 0.9333 & 13 & 0 \\
+i would like & 0.9333 & 13 & 0 \\
+come up & 0.9333 & 13 & 0 \\
+i would like to & 0.9333 & 13 & 0 \\
+&apos;ve had & 0.9333 & 13 & 0 \\
+adversity & 0.9333 & 13 & 0 \\
+does not & 0.9333 & 13 & 0 \\
+that could & 0.9333 & 13 & 0 \\
+we &apos;ve got & 0.9333 & 13 & 0 \\
+so , you & 0.9333 & 13 & 0 \\
+taking & 0.9310 & 26 & 1 \\
+seeing & 0.9310 & 26 & 1 \\
+i &apos;ve got & 0.9286 & 12 & 0 \\
+, then you & 0.9286 & 12 & 0 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table127}
+\end{table}</pre><table border="1">
+<caption> 50 n-grams where sys2>sys1 in match </caption><tr> <th> n-gram </th>
+  <th> match </th>
+  <th> sys1 </th>
+  <th> sys2 </th> </tr><tr> <th> even those of us </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> you something , but </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> these older </th>
+  <td> 0.5000 </td>
+  <td> 2 </td>
+  <td> 2 </td> </tr><tr> <th> , motors -- </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> . a farm </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> make music on </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> to be another crazy </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> share a rainbow </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> mechanics . </th>
+  <td> 0.5000 </td>
+  <td> 4 </td>
+  <td> 4 </td> </tr><tr> <th> and the next piece </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> to process </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> height and </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> footscray </th>
+  <td> 0.5000 </td>
+  <td> 4 </td>
+  <td> 4 </td> </tr><tr> <th> you see the person </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> sounds crazy , </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> in your genes , </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> i brought seven </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> that to people </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> , and why </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> personality , what would </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> fell into </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> death when they </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> you know what my </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> mirror can &apos;t </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> &apos;s little evolutionary example </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> on a water planet </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> our own governments are </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> jonas salk . </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> was growing up in </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> how quantum </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> the monk came </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> to these design </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> were very serious </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> &apos;ve been playing </th>
+  <td> 0.5000 </td>
+  <td> 2 </td>
+  <td> 2 </td> </tr><tr> <th> of a growing </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> half to nine </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> to show you first </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> a very vague </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> six months later </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> brands are a </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> -- a cell </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> difference in somebody </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> woman said </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> but we can </th>
+  <td> 0.5000 </td>
+  <td> 3 </td>
+  <td> 3 </td> </tr><tr> <th> observed yet . </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> yet , 46 </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> our cloud </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> song </th>
+  <td> 0.5000 </td>
+  <td> 6 </td>
+  <td> 6 </td> </tr><tr> <th> silence , </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr><tr> <th> to swallow </th>
+  <td> 0.5000 </td>
+  <td> 1 </td>
+  <td> 1 </td> </tr>
+</table>
+ <br/><button onclick="showhide('128_latex')">Show/Hide LaTeX</button> <br/><pre id="128_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||ccc}
+n-gram & match & sys1 & sys2 \\ \hline \hline
+even those of us & 0.5000 & 1 & 1 \\
+you something , but & 0.5000 & 1 & 1 \\
+these older & 0.5000 & 2 & 2 \\
+, motors -- & 0.5000 & 1 & 1 \\
+. a farm & 0.5000 & 1 & 1 \\
+make music on & 0.5000 & 1 & 1 \\
+to be another crazy & 0.5000 & 1 & 1 \\
+share a rainbow & 0.5000 & 1 & 1 \\
+mechanics . & 0.5000 & 4 & 4 \\
+and the next piece & 0.5000 & 1 & 1 \\
+to process & 0.5000 & 1 & 1 \\
+height and & 0.5000 & 1 & 1 \\
+footscray & 0.5000 & 4 & 4 \\
+you see the person & 0.5000 & 1 & 1 \\
+sounds crazy , & 0.5000 & 1 & 1 \\
+in your genes , & 0.5000 & 1 & 1 \\
+i brought seven & 0.5000 & 1 & 1 \\
+that to people & 0.5000 & 1 & 1 \\
+, and why & 0.5000 & 1 & 1 \\
+personality , what would & 0.5000 & 1 & 1 \\
+fell into & 0.5000 & 1 & 1 \\
+death when they & 0.5000 & 1 & 1 \\
+you know what my & 0.5000 & 1 & 1 \\
+mirror can &apos;t & 0.5000 & 1 & 1 \\
+&apos;s little evolutionary example & 0.5000 & 1 & 1 \\
+on a water planet & 0.5000 & 1 & 1 \\
+our own governments are & 0.5000 & 1 & 1 \\
+jonas salk . & 0.5000 & 1 & 1 \\
+was growing up in & 0.5000 & 1 & 1 \\
+how quantum & 0.5000 & 1 & 1 \\
+the monk came & 0.5000 & 1 & 1 \\
+to these design & 0.5000 & 1 & 1 \\
+were very serious & 0.5000 & 1 & 1 \\
+&apos;ve been playing & 0.5000 & 2 & 2 \\
+of a growing & 0.5000 & 1 & 1 \\
+half to nine & 0.5000 & 1 & 1 \\
+to show you first & 0.5000 & 1 & 1 \\
+a very vague & 0.5000 & 1 & 1 \\
+six months later & 0.5000 & 1 & 1 \\
+brands are a & 0.5000 & 1 & 1 \\
+-- a cell & 0.5000 & 1 & 1 \\
+difference in somebody & 0.5000 & 1 & 1 \\
+woman said & 0.5000 & 1 & 1 \\
+but we can & 0.5000 & 3 & 3 \\
+observed yet . & 0.5000 & 1 & 1 \\
+yet , 46 & 0.5000 & 1 & 1 \\
+our cloud & 0.5000 & 1 & 1 \\
+song & 0.5000 & 6 & 6 \\
+silence , & 0.5000 & 1 & 1 \\
+to swallow & 0.5000 & 1 & 1 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table128}
+\end{table}</pre>
+<h2>Sentence Examples</h2>
+<h4> 10 sentences where sys1>sys2 at sentence-level BLEU </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> we &apos;re still extremely attached to storytelling as a method of information brokerage . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> we &apos;re still extremely attached to storytelling as a method of information brokerage . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> the question is , what &apos;s next ? </td>
+  <td> 0 </td> </tr>
+</table>
+ <br/><button onclick="showhide('129_latex')">Show/Hide LaTeX</button> <br/><pre id="129_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & we &apos;re still extremely attached to storytelling as a method of information brokerage . &  \\
+sys1 & we &apos;re still extremely attached to storytelling as a method of information brokerage . & 100.0000 \\
+sys2 & the question is , what &apos;s next ? & 0 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table129}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> what has an influence on our on our thinking and our ability to remember ? </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> what has an influence on our on our thinking and our ability to remember ? </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> then these are fading influences of pre-industrial cultures . </td>
+  <td> 0 </td> </tr>
+</table>
+ <br/><button onclick="showhide('130_latex')">Show/Hide LaTeX</button> <br/><pre id="130_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & what has an influence on our on our thinking and our ability to remember ? &  \\
+sys1 & what has an influence on our on our thinking and our ability to remember ? & 100.0000 \\
+sys2 & then these are fading influences of pre-industrial cultures . & 0 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table130}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> from the age of feudalism to the to the machine age . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> from the age of feudalism to the to the machine age . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> what has influences in our thinking and in our thinking ? </td>
+  <td> 0 </td> </tr>
+</table>
+ <br/><button onclick="showhide('131_latex')">Show/Hide LaTeX</button> <br/><pre id="131_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & from the age of feudalism to the to the machine age . &  \\
+sys1 & from the age of feudalism to the to the machine age . & 100.0000 \\
+sys2 & what has influences in our thinking and in our thinking ? & 0 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table131}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> bruce brown , a famous design researcher at brighton university , went so far as to say that mass media and he means books and images , not tv , the internet etc. which is what we would define as mass media today that these mass media have turned our memories to stone and have eroded our ability to virtualise . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> bruce brown , a famous design researcher at brighton university , went so far as to say that mass media and he means books and images , not tv , the internet etc. which is what we would define as mass media today that these mass media have turned our memories to stone and have eroded our ability to virtualise . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> let &apos;s make a little intermediate . </td>
+  <td> 0.0086 </td> </tr>
+</table>
+ <br/><button onclick="showhide('132_latex')">Show/Hide LaTeX</button> <br/><pre id="132_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & bruce brown , a famous design researcher at brighton university , went so far as to say that mass media and he means books and images , not tv , the internet etc. which is what we would define as mass media today that these mass media have turned our memories to stone and have eroded our ability to virtualise . &  \\
+sys1 & bruce brown , a famous design researcher at brighton university , went so far as to say that mass media and he means books and images , not tv , the internet etc. which is what we would define as mass media today that these mass media have turned our memories to stone and have eroded our ability to virtualise . & 100.0000 \\
+sys2 & let &apos;s make a little intermediate . & 0.0086 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table132}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> and when you are with people who are firmly convinced that you have a soul , or , you might say , who believe that the soul brought us to life , then imagine something along these lines : the soul is an incorporeal framework around you , and it &apos;s not material , and you are just made of flesh and blood , are solid , so to speak , bound to the earth , ephemeral , subject to decay , insignificant , dead really . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> and when you are with people who are firmly convinced that you have a soul , or , you might say , who believe that the soul brought us to life , then imagine something along these lines : the soul is an incorporeal framework around you , and it &apos;s not material , and you are just made of flesh and blood , are solid , so to speak , bound to the earth , ephemeral , subject to decay , insignificant , dead really . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> it &apos;s something that &apos;s not gavage of material , material nature . </td>
+  <td> 0.0676 </td> </tr>
+</table>
+ <br/><button onclick="showhide('133_latex')">Show/Hide LaTeX</button> <br/><pre id="133_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & and when you are with people who are firmly convinced that you have a soul , or , you might say , who believe that the soul brought us to life , then imagine something along these lines : the soul is an incorporeal framework around you , and it &apos;s not material , and you are just made of flesh and blood , are solid , so to speak , bound to the earth , ephemeral , subject to decay , insignificant , dead really . &  \\
+sys1 & and when you are with people who are firmly convinced that you have a soul , or , you might say , who believe that the soul brought us to life , then imagine something along these lines : the soul is an incorporeal framework around you , and it &apos;s not material , and you are just made of flesh and blood , are solid , so to speak , bound to the earth , ephemeral , subject to decay , insignificant , dead really . & 100.0000 \\
+sys2 & it &apos;s something that &apos;s not gavage of material , material nature . & 0.0676 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table133}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> so if you think of the google glasses for example , then that &apos;s one of those concepts that allows us to combine the virtual world with the real world again , and so that means our affinity for virtualisation , of experiencing the virtual as something normal and natural , is being addressed again . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> so if you think of the google glasses for example , then that &apos;s one of those concepts that allows us to combine the virtual world with the real world again , and so that means our affinity for virtualisation , of experiencing the virtual as something normal and natural , is being addressed again . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> another example is what &apos;s called virtual reality . </td>
+  <td> 0.0983 </td> </tr>
+</table>
+ <br/><button onclick="showhide('134_latex')">Show/Hide LaTeX</button> <br/><pre id="134_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & so if you think of the google glasses for example , then that &apos;s one of those concepts that allows us to combine the virtual world with the real world again , and so that means our affinity for virtualisation , of experiencing the virtual as something normal and natural , is being addressed again . &  \\
+sys1 & so if you think of the google glasses for example , then that &apos;s one of those concepts that allows us to combine the virtual world with the real world again , and so that means our affinity for virtualisation , of experiencing the virtual as something normal and natural , is being addressed again . & 100.0000 \\
+sys2 & another example is what &apos;s called virtual reality . & 0.0983 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table134}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> that &apos;s not supposed to be a joke , but here in the image below you can see there &apos;s the laboratory , in quotation marks , so a closed up garage with all this laboratory equipment that the university got rid of , a group in paris that set something set up something and is very successful with it and does some really interesting things there . i &apos;d like to briefly mention a project . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> that &apos;s not supposed to be a joke , but here in the image below you can see there &apos;s the laboratory , in quotation marks , so a closed up garage with all this laboratory equipment that the university got rid of , a group in paris that set something set up something and is very successful with it and does some really interesting things there . i &apos;d like to briefly mention a project . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> now this is not supposed to be a joke , but . </td>
+  <td> 0.3087 </td> </tr>
+</table>
+ <br/><button onclick="showhide('135_latex')">Show/Hide LaTeX</button> <br/><pre id="135_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & that &apos;s not supposed to be a joke , but here in the image below you can see there &apos;s the laboratory , in quotation marks , so a closed up garage with all this laboratory equipment that the university got rid of , a group in paris that set something set up something and is very successful with it and does some really interesting things there . i &apos;d like to briefly mention a project . &  \\
+sys1 & that &apos;s not supposed to be a joke , but here in the image below you can see there &apos;s the laboratory , in quotation marks , so a closed up garage with all this laboratory equipment that the university got rid of , a group in paris that set something set up something and is very successful with it and does some really interesting things there . i &apos;d like to briefly mention a project . & 100.0000 \\
+sys2 & now this is not supposed to be a joke , but . & 0.3087 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table135}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> this this hint at the fact that the boy knew , deep within , that his connection is really with the fire , but that he can &apos;t say that out loud . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> this this hint at the fact that the boy knew , deep within , that his connection is really with the fire , but that he can &apos;t say that out loud . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> here you have this little mechanism . </td>
+  <td> 0.4681 </td> </tr>
+</table>
+ <br/><button onclick="showhide('136_latex')">Show/Hide LaTeX</button> <br/><pre id="136_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & this this hint at the fact that the boy knew , deep within , that his connection is really with the fire , but that he can &apos;t say that out loud . &  \\
+sys1 & this this hint at the fact that the boy knew , deep within , that his connection is really with the fire , but that he can &apos;t say that out loud . & 100.0000 \\
+sys2 & here you have this little mechanism . & 0.4681 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table136}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> that means that instead of having individual memories , we have standardised , widespread patterns of memories , onto which we can attach our personal memories . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> that means that instead of having individual memories , we have standardised , widespread patterns of memories , onto which we can attach our personal memories . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> we no longer produce ourselves . </td>
+  <td> 0.6933 </td> </tr>
+</table>
+ <br/><button onclick="showhide('137_latex')">Show/Hide LaTeX</button> <br/><pre id="137_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & that means that instead of having individual memories , we have standardised , widespread patterns of memories , onto which we can attach our personal memories . &  \\
+sys1 & that means that instead of having individual memories , we have standardised , widespread patterns of memories , onto which we can attach our personal memories . & 100.0000 \\
+sys2 & we no longer produce ourselves . & 0.6933 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table137}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> the first project that we did as an international group , when we became aware of ourselves , you might say , okay we exist as a real <<unk>> scene <<unk>> , and we &apos;re online , and we we know the people who are always chatting there and everything . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> the first project that we did as an international group , when we became aware of ourselves , you might say , okay we exist as a real <<unk>> scene <<unk>> , and we &apos;re online , and we we know the people who are always chatting there and everything . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> but always the approach of it is that it should be easy and accessible . </td>
+  <td> 0.9981 </td> </tr>
+</table>
+ <br/><button onclick="showhide('138_latex')">Show/Hide LaTeX</button> <br/><pre id="138_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & the first project that we did as an international group , when we became aware of ourselves , you might say , okay we exist as a real \textless\textlessunk\textgreater\textgreater scene \textless\textlessunk\textgreater\textgreater , and we &apos;re online , and we we know the people who are always chatting there and everything . &  \\
+sys1 & the first project that we did as an international group , when we became aware of ourselves , you might say , okay we exist as a real \textless\textlessunk\textgreater\textgreater scene \textless\textlessunk\textgreater\textgreater , and we &apos;re online , and we we know the people who are always chatting there and everything . & 100.0000 \\
+sys2 & but always the approach of it is that it should be easy and accessible . & 0.9981 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table138}
+\end{table}</pre><h4> 10 sentences where sys2>sys1 at sentence-level BLEU </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> and so i found a company called olson zaltman in pittsburg . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> and so i found a company called olson zaltman in pittsburg . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> and so i found a company called olson zaltman in pittsburg . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('139_latex')">Show/Hide LaTeX</button> <br/><pre id="139_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & and so i found a company called olson zaltman in pittsburg . &  \\
+sys1 & and so i found a company called olson zaltman in pittsburg . & 100.0000 \\
+sys2 & and so i found a company called olson zaltman in pittsburg . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table139}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> that would be nice . it wouldn &apos;t be chez panisse , but it would be nice . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> that would be nice . it wouldn &apos;t be chez panisse , but it would be nice . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> that would be nice . it wouldn &apos;t be chez panisse , but it would be nice . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('140_latex')">Show/Hide LaTeX</button> <br/><pre id="140_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & that would be nice . it wouldn &apos;t be chez panisse , but it would be nice . &  \\
+sys1 & that would be nice . it wouldn &apos;t be chez panisse , but it would be nice . & 100.0000 \\
+sys2 & that would be nice . it wouldn &apos;t be chez panisse , but it would be nice . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table140}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> imagine the first piece : a man burning his life &apos;s work . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> imagine the first piece : a man burning his life &apos;s work . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> imagine the first piece : a man burning his life &apos;s work . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('141_latex')">Show/Hide LaTeX</button> <br/><pre id="141_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & imagine the first piece : a man burning his life &apos;s work . &  \\
+sys1 & imagine the first piece : a man burning his life &apos;s work . & 100.0000 \\
+sys2 & imagine the first piece : a man burning his life &apos;s work . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table141}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> there are enzymes called restriction enzymes that actually digest dna . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> there are enzymes called restriction enzymes that actually digest dna . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> there are enzymes called restriction enzymes that actually digest dna . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('142_latex')">Show/Hide LaTeX</button> <br/><pre id="142_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & there are enzymes called restriction enzymes that actually digest dna . &  \\
+sys1 & there are enzymes called restriction enzymes that actually digest dna . & 100.0000 \\
+sys2 & there are enzymes called restriction enzymes that actually digest dna . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table142}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> early afternoon , people here and there , making calls and moving . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> early afternoon , people here and there , making calls and moving . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> early afternoon , people here and there , making calls and moving . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('143_latex')">Show/Hide LaTeX</button> <br/><pre id="143_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & early afternoon , people here and there , making calls and moving . &  \\
+sys1 & early afternoon , people here and there , making calls and moving . & 100.0000 \\
+sys2 & early afternoon , people here and there , making calls and moving . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table143}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> then the next steps , like language and so on , took less than a million years . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> then the next steps , like language and so on , took less than a million years . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> then the next steps , like language and so on , took less than a million years . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('144_latex')">Show/Hide LaTeX</button> <br/><pre id="144_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & then the next steps , like language and so on , took less than a million years . &  \\
+sys1 & then the next steps , like language and so on , took less than a million years . & 100.0000 \\
+sys2 & then the next steps , like language and so on , took less than a million years . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table144}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> it &apos;s probably the smallest of the 21 apps that the fellows wrote last year . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> it &apos;s probably the smallest of the 21 apps that the fellows wrote last year . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> it &apos;s probably the smallest of the 21 apps that the fellows wrote last year . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('145_latex')">Show/Hide LaTeX</button> <br/><pre id="145_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & it &apos;s probably the smallest of the 21 apps that the fellows wrote last year . &  \\
+sys1 & it &apos;s probably the smallest of the 21 apps that the fellows wrote last year . & 100.0000 \\
+sys2 & it &apos;s probably the smallest of the 21 apps that the fellows wrote last year . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table145}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> now , if i had ever opened the folder with the 600 pictures in it , i would have spent another hour . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> now , if i had ever opened the folder with the 600 pictures in it , i would have spent another hour . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> now , if i had ever opened the folder with the 600 pictures in it , i would have spent another hour . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('146_latex')">Show/Hide LaTeX</button> <br/><pre id="146_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & now , if i had ever opened the folder with the 600 pictures in it , i would have spent another hour . &  \\
+sys1 & now , if i had ever opened the folder with the 600 pictures in it , i would have spent another hour . & 100.0000 \\
+sys2 & now , if i had ever opened the folder with the 600 pictures in it , i would have spent another hour . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table146}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> she heard about this book by charles darwin , the origin of species and the descent of man . </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> she heard about this book by charles darwin , the origin of species and the descent of man . </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> she heard about this book by charles darwin , the origin of species and the descent of man . </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('147_latex')">Show/Hide LaTeX</button> <br/><pre id="147_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & she heard about this book by charles darwin , the origin of species and the descent of man . &  \\
+sys1 & she heard about this book by charles darwin , the origin of species and the descent of man . & 100.0000 \\
+sys2 & she heard about this book by charles darwin , the origin of species and the descent of man . & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table147}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th>
+  <th> sentbleu </th> </tr><tr> <th> Ref </th>
+  <td> who could have predicted &quot; double rainbow &quot; or rebecca black or &quot; nyan cat ? &quot; </td>
+  <td>  </td> </tr><tr> <th> sys1 </th>
+  <td> who could have predicted &quot; double rainbow &quot; or rebecca black or &quot; nyan cat ? &quot; </td>
+  <td> 100.0000 </td> </tr><tr> <th> sys2 </th>
+  <td> who could have predicted &quot; double rainbow &quot; or rebecca black or &quot; nyan cat ? &quot; </td>
+  <td> 100.0000 </td> </tr>
+</table>
+ <br/><button onclick="showhide('148_latex')">Show/Hide LaTeX</button> <br/><pre id="148_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+ & Output & sentbleu \\ \hline \hline
+Ref & who could have predicted &quot; double rainbow &quot; or rebecca black or &quot; nyan cat ? &quot; &  \\
+sys1 & who could have predicted &quot; double rainbow &quot; or rebecca black or &quot; nyan cat ? &quot; & 100.0000 \\
+sys2 & who could have predicted &quot; double rainbow &quot; or rebecca black or &quot; nyan cat ? &quot; & 100.0000 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table148}
+\end{table}</pre> 
+</body>
+</html>
