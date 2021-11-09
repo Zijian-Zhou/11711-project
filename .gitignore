@@ -1,0 +1,13 @@
+#Ignore scripts
+*.sh
+
+#Ignore output files
+*.out
+*.err
+
+#Ignore directories 
+pretrain/
+checkpoints_iwslt_golds/
+checkpoints_iwslt_goldp/
+Gold_models/
+MLE_models/
