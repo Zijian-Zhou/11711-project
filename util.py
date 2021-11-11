@@ -99,15 +99,15 @@ class Results:
     # write all the targets to a target output file
     def write_T(self, out):
         f = open(out, "w")
-        for i in self.ids:
-            (_, T, _, _, _) = self.results[i]
+        for i in range(self.size()):
+            (_, T, _, _, _) = self.results[str(i)]
             f.write(T)
         f.close()
 
     # write all the hypotheses to a target output file
     def write_H(self, out):
         f = open(out, "w")
-        for i in self.ids:
-            (_, _, H, _, _) = self.results[i]
+        for i in range(self.size()):
+            (_, _, H, _, _) = self.results[str(i)]
             f.write(H)
         f.close()

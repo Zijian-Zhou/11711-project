@@ -7,6 +7,6 @@
 # comment out the if section starting with "if args.add_bos_token:"
 
 python fairseq_cli/eval_lm.py data-bin/iwslt14.tokenized.de-en \
---path [path/to/checkpoint.pt] \
+--path /Users/seanchang/Downloads/iwslt.checkpoint300.pt \
 --task translation --max-sentences 8 \
 --source-lang de --target-lang en
