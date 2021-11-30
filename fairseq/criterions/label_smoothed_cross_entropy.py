@@ -40,6 +40,12 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
     nll_loss = -lprobs.gather(dim=-1, index=target)
     smooth_loss = -lprobs.sum(dim=-1, keepdim=True)
 
+    # Entropy of the current policy
+    lprob_ent = lprobs.clone().detach()
+    entropy = -torch.sum(lprob_ent * torch.exp(lprob_ent), dim=-1)
+    if entropy.dim() < target.dim():
+        entropy = entropy.unsqueeze(-1)
+
     batch_size = sample['target'].shape[0]
 
     if lprobs_old is None or lprobs_mle is None:
@@ -55,17 +61,24 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
         smooth_loss.masked_fill_(pad_mask, 0.0)
         if lprobs_old is not None or lprobs_mle is not None:
             weight_theta_hat.masked_fill_(pad_mask, 1.0)
+        entropy.masked_fill_(pad_mask, 1.0)
     else:
         nll_loss = nll_loss.squeeze(-1)
         smooth_loss = smooth_loss.squeeze(-1)
         nll_loss_old = nll_loss_old.squeeze(-1)
         raise NotImplementedError
 
+    assert entropy.size() == weight_mle.size()
+
     if lprobs_old is not None or lprobs_mle is not None:
         with torch.no_grad():
             if config.suffix_num > 0:
-                def obtain_suffix_weights_kk(weight_fn, kk):
+                def obtain_suffix_weights_kk(weight_fn, kk, entropy):
                     fn_weight_original = weight_fn.clone()
+
+                    if config.reward_type == "sump_ent":
+                        fn_weight_original += entropy.clone()
+
                     if kk == 0:
                         fn_weight_nextk = fn_weight_original
                     else:
@@ -73,6 +86,7 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
                         fn_weight_nextk = fn_weight_nextk.reshape(batch_size, -1)
                         fn_weight_original = fn_weight_original.reshape(batch_size, -1)
 
+                        fn_weight_nextk[:, :-kk] = fn_weight_original[:, kk:].clone()
                         for aa in range(1, kk+1):
                             if aa <= fn_weight_nextk.shape[1]:
                                 fn_weight_nextk[:, -aa].fill_(1.0)
@@ -82,24 +96,24 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
                     elif config.reward_type == 'logp':
                         fn_weight_nextk = torch.log(fn_weight_nextk+1e-10) - config.q_baseline
                     elif config.reward_type == 'entp':
-                        fn_weight_nextk = torch.log(fn_weight_nextk+1e-10) * fn_weight_nextk - config.q_baseline
+                        fn_weight_nextk = fn_weight_nextk - config.q_baseline 
 
                     fn_weight_nextk = torch.clamp(fn_weight_nextk, min=config.trunc_min)
                     return fn_weight_nextk.reshape(-1, 1)
 
                 if config.suffix_num == 5:
                     try:
-                        weight_suffix = obtain_suffix_weights_kk(weight_mle, 0) + \
-                            (config.gamma ** 1) * obtain_suffix_weights_kk(weight_mle, 1) + \
-                            (config.gamma ** 2) * obtain_suffix_weights_kk(weight_mle, 2) + \
-                            (config.gamma ** 3) * obtain_suffix_weights_kk(weight_mle, 3) + \
-                            (config.gamma ** 4) * obtain_suffix_weights_kk(weight_mle, 4) + \
-                            (config.gamma ** 5) * obtain_suffix_weights_kk(weight_mle, 5)
+                        weight_suffix = obtain_suffix_weights_kk(weight_mle, 0, entropy) + \
+                            (config.gamma ** 1) * obtain_suffix_weights_kk(weight_mle, 1, entropy) + \
+                            (config.gamma ** 2) * obtain_suffix_weights_kk(weight_mle, 2, entropy) + \
+                            (config.gamma ** 3) * obtain_suffix_weights_kk(weight_mle, 3, entropy) + \
+                            (config.gamma ** 4) * obtain_suffix_weights_kk(weight_mle, 4, entropy) + \
+                            (config.gamma ** 5) * obtain_suffix_weights_kk(weight_mle, 5, entropy)
                     except:  # check sequence length
-                        weight_suffix = obtain_suffix_weights_kk(weight_mle, 0) + \
-                            (config.gamma ** 1) * obtain_suffix_weights_kk(weight_mle, 1) + \
-                            (config.gamma ** 2) * obtain_suffix_weights_kk(weight_mle, 2) + \
-                            (config.gamma ** 3) * obtain_suffix_weights_kk(weight_mle, 3)                     
+                        weight_suffix = obtain_suffix_weights_kk(weight_mle, 0, entropy) + \
+                            (config.gamma ** 1) * obtain_suffix_weights_kk(weight_mle, 1, entropy) + \
+                            (config.gamma ** 2) * obtain_suffix_weights_kk(weight_mle, 2, entropy) + \
+                            (config.gamma ** 3) * obtain_suffix_weights_kk(weight_mle, 3, entropy)                     
                 else:
                     # Can implement much more elegantly for longer suffix_num!
                     raise NotImplementedError(config.suffix_num)
