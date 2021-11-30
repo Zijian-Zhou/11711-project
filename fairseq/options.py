@@ -390,7 +390,7 @@ def add_model_args(parser):
     group.add_argument('--q-baseline', type=float, default=-10.0,
                         help='subtracted baseline for q function')  # per-step b in Algo 1
     group.add_argument('--reward-type', type=str, default='logp',
-                        choices=['sump', 'logp'])  # logp is GOLD-p; sump is GOLD-s
+                        choices=['sump', 'logp', 'entp'])  # logp is GOLD-p; sump is GOLD-s
     group.add_argument('--trunc-min', type=float, default=1.0)  # c in Algo 1
     group.add_argument('--iw-min', type=float, default=0.0)  # u in Algo 1
     group.add_argument('--policy-update-per-k-epoch', type=int, default=5000)  # k in Algo 1

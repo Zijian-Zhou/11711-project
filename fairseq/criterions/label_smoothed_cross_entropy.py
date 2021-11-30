@@ -81,6 +81,8 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
                         fn_weight_nextk = fn_weight_nextk
                     elif config.reward_type == 'logp':
                         fn_weight_nextk = torch.log(fn_weight_nextk+1e-10) - config.q_baseline
+                    elif config.reward_type == 'entp':
+                        fn_weight_nextk = torch.log(fn_weight_nextk+1e-10) * fn_weight_nextk - config.q_baseline
 
                     fn_weight_nextk = torch.clamp(fn_weight_nextk, min=config.trunc_min)
                     return fn_weight_nextk.reshape(-1, 1)
@@ -154,8 +156,6 @@ class LabelSmoothedCrossEntropyCriterion(FairseqCriterion):
         with torch.no_grad():
             net_output_old = model_old(**sample["net_input"])
             net_output_mle = model_mle(**sample["net_input"])
-
-
         net_output = model(**sample["net_input"])
         # loss, nll_loss = self.compute_loss(model, net_output, sample, reduce=reduce)
 

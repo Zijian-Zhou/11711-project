@@ -2,7 +2,7 @@ TOTAL_NUM_UPDATES=150000
 WARMUP_UPDATES=1000
 UPDATE_FREQ=1
 
-MLE_PATH=/Users/seanchang/Downloads/iwslt.checkpoint.backup.pt.0
+MLE_PATH=TODO
 
 CUDA_VISIBLE_DEVICES=0 fairseq-train \
     data-bin/iwslt14.tokenized.de-en --save-dir checkpoints_iwslt_golds \
@@ -18,4 +18,4 @@ CUDA_VISIBLE_DEVICES=0 fairseq-train \
     --eval-bleu-detok moses \
     --eval-bleu-remove-bpe \
     --eval-bleu-print-samples \
-    --best-checkpoint-metric bleu --maximize-best-checkpoint-metric --p40 1 --use-is-obj 1 --save-interval-updates 10000 --keep-interval-updates 3 --policy-update-per-k-epoch 5000 --q-baseline 0.0 --iw-min 0.20 --reset-optimizer --trunc-min 0.1 --reward-type sump
+    --best-checkpoint-metric bleu --maximize-best-checkpoint-metric --p40 1 --use-is-obj 1 --save-interval-updates 10000 --keep-interval-updates 3 --policy-update-per-k-epoch 5000 --q-baseline -60.0 --iw-min 0.20 --reset-optimizer --trunc-min 0.1 --reward-type entp
