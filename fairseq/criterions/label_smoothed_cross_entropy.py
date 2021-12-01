@@ -77,7 +77,7 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
                     fn_weight_original = weight_fn.clone()
 
                     if config.reward_type == "sump_ent":
-                        fn_weight_original += entropy.clone()
+                        fn_weight_original += config.ent_alpha * entropy.clone()
 
                     if kk == 0:
                         fn_weight_nextk = fn_weight_original
