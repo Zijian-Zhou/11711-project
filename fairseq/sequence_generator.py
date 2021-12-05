@@ -193,6 +193,7 @@ class SequenceGenerator(nn.Module):
         constraints: Optional[Tensor] = None,
         bos_token: Optional[int] = None,
     ):
+        out_file = "/Users/seanchang/PycharmProjects/11-711/11711-project/analysis/MLE"
         incremental_states = torch.jit.annotate(
             List[Dict[str, Dict[str, Optional[Tensor]]]],
             [
@@ -335,6 +336,24 @@ class SequenceGenerator(nn.Module):
                     incremental_states,
                     self.temperature,
                 )
+                # lprobs is the log probabilities of the words for each beam
+                max_prob, max_ind = torch.max(lprobs, dim=1)
+                #print(max_prob.shape)
+
+                top_10_prob, top_10_ind = torch.topk(lprobs, 10, dim=1)
+                #print(top_10_prob.shape)
+
+                entropy = -torch.sum(torch.exp(lprobs) * lprobs, 1)
+                #print(entropy.shape)
+
+                avg_max_prob = (torch.exp(max_prob).sum() / max_prob.shape[0]).item()
+                avg_top_10_prob = (torch.exp(top_10_prob).sum() / (top_10_prob.shape[0] * top_10_prob.shape[1])).item()
+                avg_entropy = (torch.sum(entropy) / entropy.shape[0]).item()
+
+                f = open(out_file, "a")
+                f.write(str(avg_max_prob) + " " + str(avg_top_10_prob) + " " + str(avg_entropy) + "\n")
+                f.close()
+
 
             if self.lm_model is not None:
                 lm_out = self.lm_model(tokens[:, : step + 1])

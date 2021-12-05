@@ -111,3 +111,18 @@ class Results:
             (_, _, H, _, _) = self.results[str(i)]
             f.write(H)
         f.close()
+
+def avg_analysis(path):
+    f = open(path, "r")
+    lines = f.readlines()
+    count = 0
+    max_prob = 0
+    top_10_prob = 0
+    entropy = 0
+    for line in lines:
+        split = line.strip().split(" ")
+        max_prob += float(split[0])
+        top_10_prob += float(split[1])
+        entropy += float(split[2])
+        count += 1
+    print(max_prob / count, top_10_prob / count, entropy / count)
