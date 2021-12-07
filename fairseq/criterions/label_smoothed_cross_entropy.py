@@ -65,7 +65,6 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
     else:
         nll_loss = nll_loss.squeeze(-1)
         smooth_loss = smooth_loss.squeeze(-1)
-        nll_loss_old = nll_loss_old.squeeze(-1)
         raise NotImplementedError
 
     assert entropy.size() == weight_mle.size()
@@ -78,6 +77,8 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
 
                     if config.reward_type == "sump_ent":
                         fn_weight_original += config.ent_alpha * entropy.clone()
+                    elif config.reward_type == "ent":
+                        fn_weight_original = config.ent_alpha * entropy.clone()
 
                     if kk == 0:
                         fn_weight_nextk = fn_weight_original
@@ -92,11 +93,15 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
                                 fn_weight_nextk[:, -aa].fill_(1.0)
                     
                     if config.reward_type == 'sump':
-                        fn_weight_nextk = fn_weight_nextk
+                        fn_weight_nextk = fn_weight_nextk - config.q_baseline
                     elif config.reward_type == 'logp':
                         fn_weight_nextk = torch.log(fn_weight_nextk+1e-10) - config.q_baseline
-                    elif config.reward_type == 'entp':
+                    elif config.reward_type == 'sum_entp':
                         fn_weight_nextk = fn_weight_nextk - config.q_baseline 
+                    elif config.reward_type == 'expp':
+                        fn_weight_nextk = torch.exp(fn_weight_nextk) - config.q_baseline
+                    elif config.reward_type == "ent":
+                        fn_weight_nextk = fn_weight_nextk - config.q_baseline
 
                     fn_weight_nextk = torch.clamp(fn_weight_nextk, min=config.trunc_min)
                     return fn_weight_nextk.reshape(-1, 1)
