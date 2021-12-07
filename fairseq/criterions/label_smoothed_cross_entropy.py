@@ -93,7 +93,7 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
                                 fn_weight_nextk[:, -aa].fill_(1.0)
                     
                     if config.reward_type == 'sump':
-                        fn_weight_nextk = fn_weight_nextk
+                        fn_weight_nextk = fn_weight_nextk - config.q_baseline
                     elif config.reward_type == 'logp':
                         fn_weight_nextk = torch.log(fn_weight_nextk+1e-10) - config.q_baseline
                     elif config.reward_type == 'sum_entp':
